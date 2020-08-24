@@ -7,6 +7,11 @@ import {
   useHistory,
   Switch,
 } from 'react-router-dom';
+//Imported Pages//
+import { DashboardPage } from './components/pages/Dashboard';
+import { MyProfilePage } from './components/pages/MyProfile';
+import { HelpPage } from './components/pages/Help/';
+//Imported Pages//
 
 import { rootReducer } from './state/reducers';
 
@@ -16,12 +21,6 @@ import { LandingPage } from './components/pages/Landing';
 import { Provider } from 'react-redux';
 
 const store = createStore(rootReducer);
-
-//Imported Pages//
-import { DashboardPage } from './components/pages/Dashboard';
-import { MyProfilePage } from './components/pages/MyProfile';
-import { HelpPage } from './components/pages/Help/';
-//Imported Pages//
 
 ReactDOM.render(
   <Router>
@@ -40,23 +39,23 @@ function App() {
   const history = useHistory();
 
   return (
-      <Switch>
-        <Route path="/my-profile">
-          <MyProfilePage />
-        </Route>
-        <Route path="/dashboard">
-          <DashboardPage />
-        </Route>
-        <Route path="/help">
-          <HelpPage />
-        </Route>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="/">
+    <Switch>
+      <Route path="/my-profile">
+        <MyProfilePage />
+      </Route>
+      <Route path="/dashboard">
+        <DashboardPage />
+      </Route>
+      <Route path="/help">
+        <HelpPage />
+      </Route>
+      <Route path="/login">
+        <LoginPage />
+      </Route>
+      <Route path="/">
         <LandingPage />
       </Route>
-        <Route component={NotFoundPage} />
+      <Route component={NotFoundPage} />
     </Switch>
   );
 }
