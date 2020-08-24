@@ -1,53 +1,90 @@
-import React, { useEffect } from 'react';
-import OktaSignIn from '@okta/okta-signin-widget';
-import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
+import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 
-import { config } from '../../../utils/oktaConfig';
+import { useForm } from '../../../hooks/useForm';
 
-const LoginContainer = () => {
-  useEffect(() => {
-    const { pkce, issuer, clientId, redirectUri, scopes } = config;
-    // destructure your config so that you can pass it into the required fields in your widget.
-    const widget = new OktaSignIn({
-      baseUrl: issuer ? issuer.split('/oauth2')[0] : '',
-      clientId,
-      redirectUri,
-      registration: {
-        // there is more we can do to handle some errors here.
-      },
-      features: { registration: false },
-      // turning this feature on allows your widget to use Okta for user registration
-      logo: 'path-to-your-logo',
-      // add your custom logo to your signing/register widget here.
-      i18n: {
-        en: {
-          'primaryauth.title': 'Welcome to Labs Basic SPA Please sign in',
-          // change title for your app
-        },
-      },
-      authParams: {
-        pkce,
-        issuer,
-        display: 'page',
-        scopes,
-      },
-    });
-
-    widget.renderEl(
-      { el: '#sign-in-widget' },
-      () => {
-        /**
-         * In this flow, the success handler will not be called because we redirect
-         * to the Okta org for the authentication workflow.
-         */
-      },
-      err => {
-        throw err;
-      }
-    );
-  }, []);
-
-  return <div id="sign-in-widget" />;
+const initialFormValues = {
+  username: '',
+  password: '',
 };
 
-export default LoginContainer;
+const Login = () => {
+  // make a post request to retrieve a token from the api
+  // when you have handled the token, navigate to the BubblePage route
+  const [values, handleChanges, resetForm] = useForm(initialFormValues);
+  const [isLoading, setIsLoading] = useState(false);
+  let history = useHistory();
+  //   const [data, moveData, error] = useAPI({
+  //     method: 'post',
+  //     url: '/api/login',
+  //     data: values
+  // })
+
+  //   const postLogin = () => {
+  //     moveData()
+  //     .then( res => {
+  //       // console.log(res)
+  //       localStorage.setItem('token', res.payload)
+  //       setIsLoading(false)
+  //       history.push('/bubbles')
+  //       resetForm()
+  //     })
+  //   .catch( err => console.log(err))
+  //   }
+
+  const login = e => {
+    // e.preventDefault()
+    // setIsLoading(true)
+    // // console.log(values)
+    // postLogin()
+    // axiosWithAuth()
+    // .post('/api/login', credentials)
+  };
+
+  return (
+    <>
+      <nav>
+        <li>
+          <Link to="/landing"> Home</Link>
+        </li>
+        <li>
+          <Link to="/dashboard">DashBoard</Link>
+        </li>
+        <li>
+          <Link to="/my-profile">My Profile</Link>
+        </li>
+        <li>
+          <Link to="/help">Help</Link>
+        </li>
+      </nav>
+      <h1>Login</h1>
+
+      <section>
+        <form onSubmit={login}>
+          <input
+            type="text"
+            name="username"
+            placeholder="username"
+            value={values.username}
+            onChange={handleChanges}
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            value={values.password}
+            onChange={handleChanges}
+          />
+          {!isLoading ? (
+            <button>Log In</button>
+          ) : (
+            <button disabled>Loading...</button>
+          )}
+        </form>
+        ​
+      </section>
+    </>
+  );
+};
+
+export default Login;

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function RenderLandingPage(props) {
+function RenderDashboardPage(props) {
   return (
     <div>
       <nav>
         <li>
-          <Link to="/login"> Login</Link>
+          <Link to="/landing">Home</Link>
         </li>
         <li>
-          <Link to="/dashboard">DashBoard</Link>
+          <Link to="/login"> Login</Link>
         </li>
         <li>
           <Link to="/my-profile">My Profile</Link>
@@ -18,8 +18,8 @@ function RenderLandingPage(props) {
           <Link to="/help">Help</Link>
         </li>
       </nav>
-      <h1>Landing</h1>
+      <h1>DashBoard</h1>
     </div>
   );
 }
-export default RenderLandingPage;
+export default RenderDashboardPage;

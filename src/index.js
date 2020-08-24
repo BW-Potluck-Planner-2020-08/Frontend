@@ -17,6 +17,12 @@ import { Provider } from 'react-redux';
 
 const store = createStore(rootReducer);
 
+//Imported Pages//
+import { DashboardPage } from './components/pages/Dashboard';
+import { MyProfilePage } from './components/pages/MyProfile';
+import { HelpPage } from './components/pages/Help/';
+//Imported Pages//
+
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -34,14 +40,23 @@ function App() {
   const history = useHistory();
 
   return (
-    <Switch>
-      <Route path="/login" component={LoginPage} />
-      <Route path="/landing" component={LandingPage} />
-      {/* any of the routes you need secured should be registered as SecureRoutes */}
-      <Route path="/">
+      <Switch>
+        <Route path="/my-profile">
+          <MyProfilePage />
+        </Route>
+        <Route path="/dashboard">
+          <DashboardPage />
+        </Route>
+        <Route path="/help">
+          <HelpPage />
+        </Route>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        <Route path="/">
         <LandingPage />
       </Route>
-      <Route component={NotFoundPage} />
+        <Route component={NotFoundPage} />
     </Switch>
   );
 }
