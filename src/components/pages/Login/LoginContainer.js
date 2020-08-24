@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 
-import { useForm } from '../../../../src/Hooks/loginHook';
+import { useForm } from '../../../hooks/useForm';
 
 const initialFormValues = {
   username: '',
@@ -45,7 +45,7 @@ const Login = () => {
     <>
       <nav>
         <li>
-          <Link to="/login"> Login</Link>
+          <Link to="/landing"> Home</Link>
         </li>
         <li>
           <Link to="/dashboard">DashBoard</Link>
@@ -57,8 +57,8 @@ const Login = () => {
           <Link to="/help">Help</Link>
         </li>
       </nav>
-      <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
+      <h1>Login</h1>
+
       <section>
         <form onSubmit={login}>
           <input

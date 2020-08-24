@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function RenderLandingPage(props) {
+function RenderHelpPage(props) {
   return (
     <div>
       <nav>
         <li>
-          <Link to="/login"> Login</Link>
+          <Link to="/landing">Home</Link>
         </li>
         <li>
           <Link to="/dashboard">DashBoard</Link>
@@ -15,11 +15,11 @@ function RenderLandingPage(props) {
           <Link to="/my-profile">My Profile</Link>
         </li>
         <li>
-          <Link to="/help">Help</Link>
+          <Link to="/login"> Login</Link>
         </li>
       </nav>
-      <h1>Landing</h1>
+      <h1>Help</h1>
     </div>
   );
 }
-export default RenderLandingPage;
+export default RenderHelpPage;

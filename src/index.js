@@ -14,6 +14,12 @@ import { LoginPage } from './components/pages/Login';
 import { LandingPage } from './components/pages/Landing';
 import { config } from './utils/oktaConfig';
 
+//Imported Pages//
+import { DashboardPage } from './components/pages/Dashboard';
+import { MyProfilePage } from './components/pages/MyProfile';
+import { HelpPage } from './components/pages/Help/';
+//Imported Pages//
+
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -37,6 +43,9 @@ function App() {
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
+        <Route path="/dashboard" component={DashboardPage} />
+        <Route path="/my-profile" component={MyProfilePage} />
+        <Route path="/help" component={HelpPage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
         <Route path="/landing" component={LandingPage} />
