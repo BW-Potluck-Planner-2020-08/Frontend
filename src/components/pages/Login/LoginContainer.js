@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
+import { useAPI } from '../../../hooks/useAPI';
 
 import { useForm } from '../../../hooks/useForm';
 
 const initialFormValues = {
-  username: '',
+  email: '',
   password: '',
 };
 
@@ -14,31 +15,29 @@ const LoginPage = () => {
   const [values, handleChanges, resetForm] = useForm(initialFormValues);
   const [isLoading, setIsLoading] = useState(false);
   let history = useHistory();
-  //   const [data, moveData, error] = useAPI({
-  //     method: 'post',
-  //     url: '/api/login',
-  //     data: values
-  // })
+  const [data, moveData, error] = useAPI({
+    method: 'post',
+    url: '/api/login',
+    data: values,
+  });
 
-  //   const postLogin = () => {
-  //     moveData()
-  //     .then( res => {
-  //       // console.log(res)
-  //       localStorage.setItem('token', res.payload)
-  //       setIsLoading(false)
-  //       history.push('/bubbles')
-  //       resetForm()
-  //     })
-  //   .catch( err => console.log(err))
-  //   }
+  const postLogin = () => {
+    moveData()
+      .then(res => {
+        console.log(res);
+        localStorage.setItem('token', res.token);
+        setIsLoading(false);
+        history.push('/dashboard');
+        resetForm();
+      })
+      .catch(err => console.log(err));
+  };
 
   const login = e => {
-    // e.preventDefault()
-    // setIsLoading(true)
-    // // console.log(values)
-    // postLogin()
-    // axiosWithAuth()
-    // .post('/api/login', credentials)
+    e.preventDefault();
+    setIsLoading(true);
+    // console.log(values)
+    postLogin();
   };
 
   return (
@@ -58,9 +57,9 @@ const LoginPage = () => {
           <form onSubmit={login}>
             <input
               type="text"
-              name="username"
-              placeholder="username"
-              value={values.username}
+              name="email"
+              placeholder="email"
+              value={values.email}
               onChange={handleChanges}
             />
             <input
