@@ -8,7 +8,7 @@ const initialFormValues = {
   password: '',
 };
 
-const Login = () => {
+const LoginPage = () => {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
   const [values, handleChanges, resetForm] = useForm(initialFormValues);
@@ -43,48 +43,44 @@ const Login = () => {
 
   return (
     <>
-      <nav>
-        <li>
+      <header>
+        <nav>
           <Link to="/landing"> Home</Link>
-        </li>
-        <li>
           <Link to="/dashboard">DashBoard</Link>
-        </li>
-        <li>
           <Link to="/my-profile">My Profile</Link>
-        </li>
-        <li>
           <Link to="/help">Help</Link>
-        </li>
-      </nav>
-      <h1>Login</h1>
+        </nav>
+      </header>
+      <div className="content-container-login">
+        <h1>Login</h1>
 
-      <section>
-        <form onSubmit={login}>
-          <input
-            type="text"
-            name="username"
-            placeholder="username"
-            value={values.username}
-            onChange={handleChanges}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            value={values.password}
-            onChange={handleChanges}
-          />
-          {!isLoading ? (
-            <button>Log In</button>
-          ) : (
-            <button disabled>Loading...</button>
-          )}
-        </form>
-        ​
-      </section>
+        <section>
+          <form onSubmit={login}>
+            <input
+              type="text"
+              name="username"
+              placeholder="username"
+              value={values.username}
+              onChange={handleChanges}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="password"
+              value={values.password}
+              onChange={handleChanges}
+            />
+            {!isLoading ? (
+              <button>Log In</button>
+            ) : (
+              <button disabled>Loading...</button>
+            )}
+          </form>
+          ​
+        </section>
+      </div>
     </>
   );
 };
 
-export default Login;
+export default LoginPage;

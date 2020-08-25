@@ -9,7 +9,7 @@ html {
 
 body::after {
   content: '';
-  background-image: url('./assets/backgroundImages/ambitious-creative-co-rick-barrett-I8Ag046kfqc-unsplash.jpg');
+  background-image: url('./assets/ambitious-creative-co-rick-barrett-I8Ag046kfqc-unsplash.jpg');
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -43,4 +43,87 @@ body::after {
 .formColumn {
   display: flex;
   flex-direction: column;
+}
+
+header {
+  background-color: #323e40;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: flex-end;
+}
+
+nav {
+  font-size: 2.3rem;
+  height: 5%;
+}
+a {
+  color: white;
+  text-decoration: none;
+  margin-left: 50px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 200px;
+}
+
+.content-container {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  border-radius: 70px;
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.content-container-dashboard {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  border-radius: 70px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.content-container-help {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  border-radius: 70px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+.content-container-login {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  border-radius: 70px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.content-container-profile {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  border-radius: 70px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
 }
