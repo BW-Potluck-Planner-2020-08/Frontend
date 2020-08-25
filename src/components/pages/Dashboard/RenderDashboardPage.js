@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CreateNewEvent } from '../CreateNewEvent/';
 
 function RenderDashboardPage(props) {
   return (
@@ -19,6 +20,7 @@ function RenderDashboardPage(props) {
         </li>
       </nav>
       <h1>DashBoard</h1>
+      <CreateNewEvent />
     </div>
   );
 }

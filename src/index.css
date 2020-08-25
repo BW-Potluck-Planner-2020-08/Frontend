@@ -1,0 +1,46 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  margin: 0;
+}
+
+body::after {
+  content: '';
+  background-image: url('./assets/backgroundImages/ambitious-creative-co-rick-barrett-I8Ag046kfqc-unsplash.jpg');
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newEventProgress {
+  border: 1px solid #323e40;
+  display: flex;
+  justify-content: space-evenly;
+  width: 85%;
+}
+
+.formContainer {
+  display: flex;
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: column;
+}
