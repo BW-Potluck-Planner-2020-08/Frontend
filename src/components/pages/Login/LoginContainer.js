@@ -51,33 +51,34 @@ const LoginPage = () => {
           <Link to="/help">Help</Link>
         </nav>
       </header>
+      <div className="content-container-login">
+        <h1>Login</h1>
 
-      <h1>Login</h1>
-
-      <section>
-        <form onSubmit={login}>
-          <input
-            type="text"
-            name="username"
-            placeholder="username"
-            value={values.username}
-            onChange={handleChanges}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            value={values.password}
-            onChange={handleChanges}
-          />
-          {!isLoading ? (
-            <button>Log In</button>
-          ) : (
-            <button disabled>Loading...</button>
-          )}
-        </form>
-        ​
-      </section>
+        <section>
+          <form onSubmit={login}>
+            <input
+              type="text"
+              name="username"
+              placeholder="username"
+              value={values.username}
+              onChange={handleChanges}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="password"
+              value={values.password}
+              onChange={handleChanges}
+            />
+            {!isLoading ? (
+              <button>Log In</button>
+            ) : (
+              <button disabled>Loading...</button>
+            )}
+          </form>
+          ​
+        </section>
+      </div>
     </>
   );
 };

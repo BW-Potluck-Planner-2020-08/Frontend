@@ -12,8 +12,9 @@ function RenderMyProfilePage(props) {
           <Link to="/help">Help</Link>
         </nav>
       </header>
-
-      <h1>My Profile</h1>
+      <div className="content-container-profile">
+        <h1>My Profile</h1>
+      </div>
     </div>
   );
 }

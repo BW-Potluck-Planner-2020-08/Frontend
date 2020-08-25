@@ -12,8 +12,9 @@ function RenderDashboardPage(props) {
           <Link to="/help">Help</Link>
         </nav>
       </header>
-
-      <h1>DashBoard</h1>
+      <div className="content-container-dashboard">
+        <h1>DashBoard</h1>
+      </div>
     </div>
   );
 }

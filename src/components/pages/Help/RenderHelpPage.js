@@ -12,6 +12,9 @@ function RenderHelpPage(props) {
           <Link to="/landing">Home</Link>
         </nav>
       </header>
+      <div className="content-container-help">
+        <h1>Help</h1>
+      </div>
     </div>
   );
 }
