@@ -17,7 +17,7 @@ const RenderCreateNewEventPage = props => (
         <h4>STEP 3</h4>
       </div>
     </div>
-    <form>
+    <form onSubmit={props.submit}>
       <div className="formContainer">
         <div className="formColumn">
           <h2>Event Address</h2>
@@ -94,6 +94,20 @@ const RenderCreateNewEventPage = props => (
               value={props.values.end_time}
               onChange={props.handleChanges}
             />
+            <textarea
+              height="5"
+              name="special_instructions"
+              placeholder="Special instructions..."
+              value={props.values.special_instructions}
+              onChange={props.handleChanges}
+            />
+            <div>
+              {!props.loading ? (
+                <button>Next Step</button>
+              ) : (
+                <button disabled>Loading...</button>
+              )}
+            </div>
           </div>
         </div>
       </div>

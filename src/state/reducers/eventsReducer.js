@@ -7,6 +7,7 @@ export const ADD_EVENT_ERROR = 'ADD_EVENT_ERROR';
 
 const initialState = {
   events: [],
+  error: '',
 };
 
 export const eventsReducer = (state = initialState, action) => {

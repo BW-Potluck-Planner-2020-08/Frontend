@@ -5,6 +5,7 @@ html {
   display: block;
   position: relative;
   margin: 0;
+  font-size: 62.5%;
 }
 
 body::after {
@@ -21,6 +22,16 @@ body::after {
   right: 0;
   position: absolute;
   z-index: -1;
+}
+
+button {
+  color: white;
+  background-color: #732002;
+  text-transform: uppercase;
+  font-size: 2rem;
+  width: 50%;
+  padding: 1rem 1.25rem;
+  border-radius: 5px;
 }
 
 .container {

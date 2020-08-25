@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import '../../../index.css';
 import { states } from '../../../constants/index';
 import { useForm } from '../../../hooks/useForm';
+import { useAPI } from '../../../hooks/useAPI';
 import Dropdown from '../../common/Dropdown';
 
 const initialFormValues = {
@@ -18,29 +19,29 @@ function RenderLandingPage(props) {
   const [values, handleChanges, resetForm] = useForm(initialFormValues);
   const [isLoading, setIsLoading] = useState(false);
   let history = useHistory();
-  //   const [data, moveData, error] = useAPI({
-  //     method: 'post',
-  //     url: '/api/login',
-  //     data: values
-  // })
+  const [data, moveData, error] = useAPI({
+    method: 'post',
+    url: '/user/register',
+    data: values,
+  });
 
-  //   const postLogin = () => {
-  //     moveData()
-  //     .then( res => {
-  //       // console.log(res)
-  //       localStorage.setItem('token', res.payload)
-  //       setIsLoading(false)
-  //       history.push('/bubbles')
-  //       resetForm()
-  //     })
-  //   .catch( err => console.log(err))
-  //   }
+  const postLogin = () => {
+    moveData()
+      .then(res => {
+        console.log(res);
+        localStorage.setItem('token', res.payload);
+        setIsLoading(false);
+        // history.push('/bubbles')
+        resetForm();
+      })
+      .catch(err => console.log(err));
+  };
 
   const login = e => {
     e.preventDefault();
     setIsLoading(true);
     console.log(values);
-    // postLogin()
+    postLogin();
     // axiosWithAuth()
     // .post('/api/login', credentials)
   };
