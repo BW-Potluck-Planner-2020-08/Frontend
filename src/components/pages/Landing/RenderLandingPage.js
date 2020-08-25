@@ -11,6 +11,7 @@ const initialFormValues = {
   last_name: '',
   email: '',
   address_one: '',
+  address_two: '',
   city: '',
   state: '',
   zip: '',
@@ -93,8 +94,22 @@ function RenderLandingPage(props) {
                   <input
                     type="text"
                     name="address_one"
-                    placeholder="Address"
+                    placeholder="Address 2"
                     value={values.address_one}
+                    onChange={handleChanges}
+                  />
+                  <input
+                    type="text"
+                    name="address_two"
+                    placeholder="Address 1"
+                    value={values.address_two}
+                    onChange={handleChanges}
+                  />
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="City"
+                    value={values.city}
                     onChange={handleChanges}
                   />
 
