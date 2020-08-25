@@ -4,20 +4,15 @@ import { Link } from 'react-router-dom';
 function RenderDashboardPage(props) {
   return (
     <div>
-      <nav>
-        <li>
+      <header>
+        <nav>
           <Link to="/landing">Home</Link>
-        </li>
-        <li>
           <Link to="/login"> Login</Link>
-        </li>
-        <li>
           <Link to="/my-profile">My Profile</Link>
-        </li>
-        <li>
           <Link to="/help">Help</Link>
-        </li>
-      </nav>
+        </nav>
+      </header>
+
       <h1>DashBoard</h1>
     </div>
   );

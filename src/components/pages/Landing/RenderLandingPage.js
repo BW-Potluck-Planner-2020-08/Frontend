@@ -1,24 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../../index.css';
+import { states } from '../../../constants/index';
+import Dropdown from '../../common/Dropdown';
+
+const initialFormvalues = [];
 
 function RenderLandingPage(props) {
   return (
-    <div>
-      <nav>
-        <li>
+    <div className="landing">
+      <header>
+        <nav>
           <Link to="/login"> Login</Link>
-        </li>
-        <li>
           <Link to="/dashboard">DashBoard</Link>
-        </li>
-        <li>
           <Link to="/my-profile">My Profile</Link>
-        </li>
-        <li>
           <Link to="/help">Help</Link>
-        </li>
-      </nav>
-      <h1>Landing</h1>
+        </nav>
+      </header>
+      <div className="content-container">
+        <h1>Landing</h1>
+      </div>
+      <div className="form"></div>
     </div>
   );
 }

@@ -4,21 +4,14 @@ import { Link } from 'react-router-dom';
 function RenderHelpPage(props) {
   return (
     <div>
-      <nav>
-        <li>
-          <Link to="/landing">Home</Link>
-        </li>
-        <li>
-          <Link to="/dashboard">DashBoard</Link>
-        </li>
-        <li>
-          <Link to="/my-profile">My Profile</Link>
-        </li>
-        <li>
+      <header>
+        <nav>
           <Link to="/login"> Login</Link>
-        </li>
-      </nav>
-      <h1>Help</h1>
+          <Link to="/dashboard">DashBoard</Link>
+          <Link to="/my-profile">My Profile</Link>
+          <Link to="/landing">Home</Link>
+        </nav>
+      </header>
     </div>
   );
 }

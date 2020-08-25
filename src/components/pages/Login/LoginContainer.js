@@ -8,7 +8,7 @@ const initialFormValues = {
   password: '',
 };
 
-const Login = () => {
+const LoginPage = () => {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
   const [values, handleChanges, resetForm] = useForm(initialFormValues);
@@ -43,20 +43,15 @@ const Login = () => {
 
   return (
     <>
-      <nav>
-        <li>
+      <header>
+        <nav>
           <Link to="/landing"> Home</Link>
-        </li>
-        <li>
           <Link to="/dashboard">DashBoard</Link>
-        </li>
-        <li>
           <Link to="/my-profile">My Profile</Link>
-        </li>
-        <li>
           <Link to="/help">Help</Link>
-        </li>
-      </nav>
+        </nav>
+      </header>
+
       <h1>Login</h1>
 
       <section>
@@ -87,4 +82,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
