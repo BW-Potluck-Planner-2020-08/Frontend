@@ -19,6 +19,7 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { LoginPage } from './components/pages/Login';
 import { LandingPage } from './components/pages/Landing';
 import { Provider } from 'react-redux';
+import './index.css';
 
 const store = createStore(rootReducer);
 
@@ -26,7 +27,7 @@ ReactDOM.render(
   <Router>
     <React.StrictMode>
       <Provider store={store}>
-        <App />
+        <App className="bg" />
       </Provider>
     </React.StrictMode>
   </Router>,
@@ -39,23 +40,25 @@ function App() {
   const history = useHistory();
 
   return (
-    <Switch>
-      <Route path="/my-profile">
-        <MyProfilePage />
-      </Route>
-      <Route path="/dashboard">
-        <DashboardPage />
-      </Route>
-      <Route path="/help">
-        <HelpPage />
-      </Route>
-      <Route path="/login">
-        <LoginPage />
-      </Route>
-      <Route path="/">
-        <LandingPage />
-      </Route>
-      <Route component={NotFoundPage} />
-    </Switch>
+    <div className="container">
+      <Switch>
+        <Route path="/my-profile">
+          <MyProfilePage />
+        </Route>
+        <Route path="/dashboard">
+          <DashboardPage />
+        </Route>
+        <Route path="/help">
+          <HelpPage />
+        </Route>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        <Route path="/">
+          <LandingPage />
+        </Route>
+        <Route component={NotFoundPage} />
+      </Switch>
+    </div>
   );
 }
