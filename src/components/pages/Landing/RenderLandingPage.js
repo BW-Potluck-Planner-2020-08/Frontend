@@ -61,6 +61,17 @@ function RenderLandingPage(props) {
         </header>
 
         <div className="content-container">
+          <div className="introduction">
+            <h1>Oh no! Three tuna casseroles again?</h1>
+            <p>
+              Welcome to Potluck planner, the easy, no-stress way to figure out
+              who’s bringing what to the next potluck. How does it work?
+            </p>
+            <h2>
+              Ready to get started? Create your account today. It’s free.{' '}
+            </h2>
+            <span className="arrow">&#8594;</span>
+          </div>
           <div className="form">
             <h2>Create an Account to Get Started!</h2>
             <section>
@@ -95,14 +106,14 @@ function RenderLandingPage(props) {
                   <input
                     type="text"
                     name="address_one"
-                    placeholder="Address 2"
+                    placeholder="Address 1"
                     value={values.address_one}
                     onChange={handleChanges}
                   />
                   <input
                     type="text"
                     name="address_two"
-                    placeholder="Address 1"
+                    placeholder="Address 2"
                     value={values.address_two}
                     onChange={handleChanges}
                   />
