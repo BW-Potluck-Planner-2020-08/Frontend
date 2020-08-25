@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function RenderHelpPage(props) {
   return (
-    <div>
+    <div className="page">
       <header>
         <nav>
           <Link to="/login"> Login</Link>
@@ -12,7 +12,7 @@ function RenderHelpPage(props) {
           <Link to="/landing">Home</Link>
         </nav>
       </header>
-      <div className="content-container-help">
+      <div className="content-container">
         <h1>Help</h1>
       </div>
     </div>

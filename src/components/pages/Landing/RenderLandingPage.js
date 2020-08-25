@@ -50,15 +50,16 @@ function RenderLandingPage(props) {
   };
   return (
     <>
-      <header>
-        <nav>
-          <Link to="/login"> Login</Link>
-          <Link to="/dashboard">DashBoard</Link>
-          <Link to="/my-profile">My Profile</Link>
-          <Link to="/help">Help</Link>
-        </nav>
-      </header>
-      <div className="landing">
+      <div className="page">
+        <header>
+          <nav>
+            <Link to="/login"> Login</Link>
+            <Link to="/dashboard">DashBoard</Link>
+            <Link to="/my-profile">My Profile</Link>
+            <Link to="/help">Help</Link>
+          </nav>
+        </header>
+
         <div className="content-container">
           <div className="form">
             <h2>Create an Account to Get Started!</h2>

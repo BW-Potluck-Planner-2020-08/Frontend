@@ -42,41 +42,44 @@ const LoginPage = () => {
 
   return (
     <>
-      <header>
-        <nav>
-          <Link to="/landing"> Home</Link>
-          <Link to="/dashboard">DashBoard</Link>
-          <Link to="/my-profile">My Profile</Link>
-          <Link to="/help">Help</Link>
-        </nav>
-      </header>
-      <div className="content-container-login">
-        <h1>Login</h1>
-
-        <section>
-          <form onSubmit={login}>
-            <input
-              type="text"
-              name="email"
-              placeholder="email"
-              value={values.email}
-              onChange={handleChanges}
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="password"
-              value={values.password}
-              onChange={handleChanges}
-            />
-            {!isLoading ? (
-              <button>Log In</button>
-            ) : (
-              <button disabled>Loading...</button>
-            )}
-          </form>
-          ​
-        </section>
+      <div className="page">
+        <header>
+          <nav>
+            <Link to="/landing"> Home</Link>
+            <Link to="/dashboard">DashBoard</Link>
+            <Link to="/my-profile">My Profile</Link>
+            <Link to="/help">Help</Link>
+          </nav>
+        </header>
+        <div className="content-container">
+          <h1>Login</h1>
+          <div className="form">
+            <section>
+              <form onSubmit={login}>
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="email"
+                  value={values.email}
+                  onChange={handleChanges}
+                />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  value={values.password}
+                  onChange={handleChanges}
+                />
+                {!isLoading ? (
+                  <button>Log In</button>
+                ) : (
+                  <button disabled>Loading...</button>
+                )}
+              </form>
+              ​
+            </section>
+          </div>
+        </div>
       </div>
     </>
   );

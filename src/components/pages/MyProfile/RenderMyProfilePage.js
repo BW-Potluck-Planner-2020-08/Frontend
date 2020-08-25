@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function RenderMyProfilePage(props) {
   return (
-    <div>
+    <div className="page">
       <header>
         <nav>
           <Link to="/landing">Home</Link>
@@ -12,7 +12,7 @@ function RenderMyProfilePage(props) {
           <Link to="/help">Help</Link>
         </nav>
       </header>
-      <div className="content-container-profile">
+      <div className="content-container">
         <h1>My Profile</h1>
       </div>
     </div>
