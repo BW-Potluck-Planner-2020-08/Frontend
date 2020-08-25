@@ -3,46 +3,49 @@ import { Link, useHistory } from 'react-router-dom';
 import '../../../index.css';
 import { states } from '../../../constants/index';
 import { useForm } from '../../../hooks/useForm';
+import { useAPI } from '../../../hooks/useAPI';
 import Dropdown from '../../common/Dropdown';
 
 const initialFormValues = {
   first_name: '',
   last_name: '',
   email: '',
-  address: '',
-  location: '',
+  address_one: '',
+  city: '',
+  state: '',
+  zip: '',
   password: '',
 };
 
 function RenderLandingPage(props) {
+  // make a post request to retrieve a token from the api
+  // when you have handled the token, navigate to the Login route
   const [values, handleChanges, resetForm] = useForm(initialFormValues);
   const [isLoading, setIsLoading] = useState(false);
   let history = useHistory();
-  //   const [data, moveData, error] = useAPI({
-  //     method: 'post',
-  //     url: '/api/login',
-  //     data: values
-  // })
+  const [data, moveData, error] = useAPI({
+    method: 'post',
+    url: '/user/register',
+    data: values,
+  });
 
-  //   const postLogin = () => {
-  //     moveData()
-  //     .then( res => {
-  //       // console.log(res)
-  //       localStorage.setItem('token', res.payload)
-  //       setIsLoading(false)
-  //       history.push('/bubbles')
-  //       resetForm()
-  //     })
-  //   .catch( err => console.log(err))
-  //   }
+  const postRegister = () => {
+    moveData()
+      .then(res => {
+        console.log(res);
+        localStorage.setItem('token', res.token);
+        setIsLoading(false);
+        history.push('/login');
+        resetForm();
+      })
+      .catch(err => console.log(err));
+  };
 
-  const login = e => {
+  const register = e => {
     e.preventDefault();
     setIsLoading(true);
     console.log(values);
-    // postLogin()
-    // axiosWithAuth()
-    // .post('/api/login', credentials)
+    postRegister();
   };
   return (
     <>
@@ -59,7 +62,7 @@ function RenderLandingPage(props) {
           <div className="form">
             <h2>Create an Account to Get Started!</h2>
             <section>
-              <form onSubmit={login}>
+              <form onSubmit={register}>
                 <div>
                   <input
                     type="text"
@@ -89,17 +92,16 @@ function RenderLandingPage(props) {
                 <div>
                   <input
                     type="text"
-                    name="address"
+                    name="address_one"
                     placeholder="Address"
-                    value={values.address}
+                    value={values.address_one}
                     onChange={handleChanges}
                   />
 
                   <Dropdown
                     data={states}
-                    id="locationInput"
-                    name="location"
-                    value={values.location}
+                    name="state"
+                    value={values.state}
                     onChange={handleChanges}
                   />
                 </div>
