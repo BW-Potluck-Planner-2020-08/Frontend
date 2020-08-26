@@ -131,6 +131,7 @@ h1,h2,h3,p, a{
 span.arrow{
   font-size:100px;
   font-weight: bolder;
+  margin-right: 10%;
 }
 
 .introduction h1{
@@ -169,4 +170,17 @@ input[type=password] {
 }
 .dashboard-container h1{
   font-size:3.5rem;
+}
+
+/*NAV ANIMATION */
+.cssanimation, .cssanimation span {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.cssanimation span { display: inline-block }
+
+.hu__hu__ { animation: hu__hu__ infinite 2s ease-in-out }
+@keyframes hu__hu__ {
+  50% { transform: translate(15px) }
 }
