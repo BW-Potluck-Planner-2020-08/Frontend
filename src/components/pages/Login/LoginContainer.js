@@ -63,8 +63,8 @@ const LoginPage = () => {
           </nav>
         </header>
         <div className="content-container">
-          <h1>Login</h1>
           <div className="form">
+            <h1>Login To Your Account</h1>
             <section>
               <form onSubmit={login}>
                 <input
