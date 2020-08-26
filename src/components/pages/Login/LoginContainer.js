@@ -55,6 +55,7 @@ const LoginPage = () => {
     <>
       <div className="page">
         <header>
+          <h1>POTLUCK PLANNER</h1>
           <nav>
             <Link to="/landing"> Home</Link>
             <Link to="/dashboard">DashBoard</Link>
