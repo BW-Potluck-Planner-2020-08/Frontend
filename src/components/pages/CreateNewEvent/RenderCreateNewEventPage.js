@@ -67,7 +67,7 @@ const RenderCreateNewEventPage = props => (
             value={props.values.date}
             onChange={props.handleChanges}
           />
-          <div>
+          <div className="start-end-intstructions">
             <input
               type="text"
               name="start_time"
@@ -78,7 +78,7 @@ const RenderCreateNewEventPage = props => (
             <input
               type="text"
               name="end_time"
-              placeholder="Start Time"
+              placeholder="End Time"
               value={props.values.end_time}
               onChange={props.handleChanges}
             />
