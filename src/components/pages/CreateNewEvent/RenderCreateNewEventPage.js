@@ -5,19 +5,6 @@ import Dropdown from '../../../components/common/Dropdown';
 const RenderCreateNewEventPage = props => (
   // console.log(props)
   <section>
-    <h1>Let's Create Your Event</h1>
-    <div className="newEventProgress">
-      {/* Progress bar container */}
-      <div>
-        <h4>STEP 1</h4>
-      </div>
-      <div>
-        <h4>STEP 2</h4>
-      </div>
-      <div>
-        <h4>STEP 3</h4>
-      </div>
-    </div>
     <form onSubmit={props.submit}>
       <div className="formContainer">
         <div className="formColumn">

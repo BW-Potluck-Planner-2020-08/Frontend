@@ -9,7 +9,10 @@ import {
   ADD_EVENT_ERROR,
 } from '../../../state/reducers/eventsReducer';
 
+import CreateEventProgressBar from '../../common/CreateEventProgressBar';
 import RenderCreateNewEventPage from './RenderCreateNewEventPage';
+import StepTwoContainer from './StepTwo/StepTwoContainer';
+import StepThreeContainer from './StepThree/StepThreeContainer';
 
 const initialFormValues = {
   date: '',
@@ -25,11 +28,12 @@ const initialFormValues = {
   special_instructions: '',
 };
 
-const CreateNewEvent = () => {
+const CreateNewEvent = props => {
   const userState = useSelector(state => state.userReducer);
   const eventsState = useSelector(state => state.eventsReducer);
   const history = useHistory();
   const [values, handleChanges, resetForm] = useForm(initialFormValues);
+  const [currentStep, setCurrentStep] = useState('');
   const dispatch = useDispatch();
   const [data, moveData, error] = useAPI({
     method: 'post',
@@ -39,7 +43,7 @@ const CreateNewEvent = () => {
       user_id: userState.user.id,
     },
   });
-  console.log(userState.user.id);
+  //   console.log(userState.user.id);
   const postEvent = () => {
     dispatch({ type: ADD_EVENT_START });
     moveData()
@@ -50,7 +54,8 @@ const CreateNewEvent = () => {
           payload: res,
         });
         resetForm();
-        history.push('/new-event/step-two');
+        setCurrentStep('two');
+        history.push('/dashboard/new-event/step-two');
       })
       .catch(err => {
         console.log(err);
@@ -64,12 +69,23 @@ const CreateNewEvent = () => {
   };
 
   return (
-    <RenderCreateNewEventPage
-      values={values}
-      handleChanges={handleChanges}
-      loading={eventsState.loading}
-      submit={submit}
-    />
+    <section>
+      {!props.newEvent && null}
+      <CreateEventProgressBar />
+      {currentStep === 'two' ? (
+        <StepTwoContainer setCurrentStep={setCurrentStep} />
+      ) : currentStep === 'three' ? (
+        <StepThreeContainer />
+      ) : (
+        <RenderCreateNewEventPage
+          values={values}
+          handleChanges={handleChanges}
+          loading={eventsState.loading}
+          submit={submit}
+        />
+      )}
+      ;
+    </section>
   );
 };
 
