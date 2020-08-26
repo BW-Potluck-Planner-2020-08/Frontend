@@ -65,8 +65,8 @@ const LoginPage = () => {
         </header>
         <div className="content-container">
           <div className="form">
-            <h1>Login To Your Account</h1>
             <section>
+              <h1>Login To Your Account</h1>
               <form onSubmit={login}>
                 <input
                   type="text"
