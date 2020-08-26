@@ -21,8 +21,11 @@ import { LandingPage } from './components/pages/Landing';
 import { Provider } from 'react-redux';
 import './index.css';
 
-const store = createStore(rootReducer);
-
+const store = createStore(
+  rootReducer /* preloadedState, */,
+  +window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+// console.log(store.getState());
 ReactDOM.render(
   <Router>
     <React.StrictMode>

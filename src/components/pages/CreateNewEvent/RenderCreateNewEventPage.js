@@ -3,6 +3,7 @@ import { states } from '../../../constants';
 import Dropdown from '../../../components/common/Dropdown';
 
 const RenderCreateNewEventPage = props => (
+  // console.log(props)
   <section>
     <h1>Let's Create Your Event</h1>
     <div className="newEventProgress">

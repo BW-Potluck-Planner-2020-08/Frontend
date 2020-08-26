@@ -4,7 +4,7 @@ import { CreateNewEvent } from '../CreateNewEvent/';
 
 function RenderDashboardPage(props) {
   return (
-    <div>
+    <div className="page">
       <header>
         <nav>
           <Link to="/landing">Home</Link>
@@ -13,7 +13,7 @@ function RenderDashboardPage(props) {
           <Link to="/help">Help</Link>
         </nav>
       </header>
-      <div className="content-container-dashboard">
+      <div className="content-container">
         <h1>DashBoard</h1>
         <CreateNewEvent />
       </div>
