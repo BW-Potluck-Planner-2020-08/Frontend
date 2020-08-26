@@ -26,7 +26,7 @@ function RenderDashboardPage(props) {
       <div className="content-container">
         <h1> Welcome To Your DashBoard</h1>
         {/*Going to update next div with classname "dashboard-container" that should increase font add colors, waiting until its complete*/}
-        <div>
+        <div className="dashboard-container">
           {!newEvent ? (
             <button onClick={createNewEvent}>Create New Potluck</button>
           ) : null}

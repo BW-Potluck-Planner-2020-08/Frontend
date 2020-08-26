@@ -27,6 +27,7 @@ const initialFormValues = {
 function RenderLandingPage(props) {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the Login route
+
   const dispatch = useDispatch();
   const state = useSelector(state => state.userReducer);
   const [values, handleChanges, resetForm] = useForm(initialFormValues);
@@ -84,7 +85,17 @@ function RenderLandingPage(props) {
             <h2>
               Ready to get started? Create your account today. It’s free.{' '}
             </h2>
-            <span className="arrow">&#8594;</span>
+            <div className="cssanimation hu__hu__ sequence">
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+              <h1>Don't Miss Out On This Oppurtunity!</h1>
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+            </div>
           </div>
           <div className="form">
             <h2>Create an Account to Get Started!</h2>
