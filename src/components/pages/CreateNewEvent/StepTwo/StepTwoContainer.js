@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import RenderStepTwo from './RenderStepTwoPage';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -31,9 +31,7 @@ const StepTwoContainer = props => {
       id: eventsState.events.id,
     },
   });
-  useEffect(() => {
-    console.log(values);
-  }, [values]);
+
   const postItem = () => {
     moveData()
       .then(res => {
