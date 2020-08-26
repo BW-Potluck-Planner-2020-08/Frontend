@@ -95,3 +95,14 @@ a {
   display: flex;
   justify-content: center;
 }
+
+.introduction{
+  padding-top:15%;
+  width:60%;
+  
+}
+
+span.arrow{
+  font-size:100px;
+  font-weight: bolder;
+}
