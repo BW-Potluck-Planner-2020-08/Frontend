@@ -61,6 +61,10 @@ button:hover {
   justify-content: space-evenly;
   width: 85%;
 }
+.newEventProgress h4{
+  font-size: 1.5rem;
+
+}
 
 .formContainer {
   display: flex;
@@ -69,6 +73,12 @@ button:hover {
 .formColumn {
   display: flex;
   flex-direction: column;
+}
+.formColumn h2{
+  font-size:1.5rem;
+}
+.formColumn button {
+  margin-top:20px;
 }
 
 header {
@@ -109,11 +119,22 @@ h1,h2,h3,p, a{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 250px;
+  max-width: 300px;
   border: 1px dotted green;
   margin-left: 5%;
   margin-right: -2.5%;
 }
+
+input {
+  width: 200px;
+  height: 25px;
+  
+ }
+ select{
+  width: 200px;
+  height: 25px;
+  
+ }
 
 .page{
   width: 100%;
@@ -174,7 +195,7 @@ input[type=password] {
 
 /* DASHBOARD */
 .dashboard-container{
-  padding-top: 15%;
+  padding-top: 10%;
   display:flex;
   flex-direction: column;
   align-items: center;
