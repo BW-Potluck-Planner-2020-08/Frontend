@@ -7,6 +7,7 @@ import {
   useHistory,
   Switch,
 } from 'react-router-dom';
+import PrivateRoute from './components/common/PrivateRoute';
 //Imported Pages//
 import { DashboardPage } from './components/pages/Dashboard';
 import { MyProfilePage } from './components/pages/MyProfile';
@@ -21,8 +22,11 @@ import { LandingPage } from './components/pages/Landing';
 import { Provider } from 'react-redux';
 import './index.css';
 
-const store = createStore(rootReducer);
-
+const store = createStore(
+  rootReducer /* preloadedState, */,
+  +window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+// console.log(store.getState());
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -37,17 +41,17 @@ ReactDOM.render(
 function App() {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
-  const history = useHistory();
+  // const history = useHistory();
 
   return (
     <div className="container">
       <Switch>
-        <Route path="/my-profile">
-          <MyProfilePage />
-        </Route>
-        <Route path="/dashboard">
+        <PrivateRoute path="/dashboard">
           <DashboardPage />
-        </Route>
+        </PrivateRoute>
+        <PrivateRoute path="/my-profile">
+          <MyProfilePage />
+        </PrivateRoute>
         <Route path="/help">
           <HelpPage />
         </Route>

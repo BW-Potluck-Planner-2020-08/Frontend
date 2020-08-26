@@ -7,10 +7,30 @@ export const ADD_EVENT_ERROR = 'ADD_EVENT_ERROR';
 
 const initialState = {
   events: [],
+  loading: false,
+  error: '',
 };
 
 export const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ADD_EVENT_START:
+      return {
+        events: [],
+        loading: true,
+        error: '',
+      };
+    case ADD_EVENT_SUCCESS:
+      return {
+        events: action.payload,
+        loading: false,
+        error: '',
+      };
+    case ADD_EVENT_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }

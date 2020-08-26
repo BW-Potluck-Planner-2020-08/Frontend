@@ -4,7 +4,13 @@ import '../../../index.css';
 import { states } from '../../../constants/index';
 import { useForm } from '../../../hooks/useForm';
 import { useAPI } from '../../../hooks/useAPI';
+import { useSelector, useDispatch } from 'react-redux';
 import Dropdown from '../../common/Dropdown';
+import {
+  USER_EVENT_START,
+  USER_EVENT_SUCCESS,
+  USER_EVENT_ERROR,
+} from '../../../state/reducers/userReducer';
 
 const initialFormValues = {
   first_name: '',
@@ -21,8 +27,9 @@ const initialFormValues = {
 function RenderLandingPage(props) {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the Login route
+  const dispatch = useDispatch();
+  const state = useSelector(state => state.userReducer);
   const [values, handleChanges, resetForm] = useForm(initialFormValues);
-  const [isLoading, setIsLoading] = useState(false);
   let history = useHistory();
   const [data, moveData, error] = useAPI({
     method: 'post',
@@ -31,21 +38,28 @@ function RenderLandingPage(props) {
   });
 
   const postRegister = () => {
+    dispatch({ type: USER_EVENT_START });
     moveData()
       .then(res => {
         console.log(res);
         localStorage.setItem('token', res.token);
-        setIsLoading(false);
-        history.push('/login');
+        dispatch({
+          type: USER_EVENT_SUCCESS,
+          payload: res.user,
+        });
+        console.log(state);
+        history.push('/dashboard');
         resetForm();
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        dispatch({ type: USER_EVENT_ERROR, payload: err });
+      });
   };
 
   const register = e => {
     e.preventDefault();
-    setIsLoading(true);
-    console.log(values);
+    // console.log(values);
     postRegister();
   };
   return (
@@ -143,7 +157,7 @@ function RenderLandingPage(props) {
                   />
                 </div>
 
-                {!isLoading ? (
+                {!state.loading ? (
                   <button>CREATE MY ACCOUNT</button>
                 ) : (
                   <button disabled>Loading...</button>

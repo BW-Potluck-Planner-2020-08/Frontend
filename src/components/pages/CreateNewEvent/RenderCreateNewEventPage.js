@@ -3,21 +3,9 @@ import { states } from '../../../constants';
 import Dropdown from '../../../components/common/Dropdown';
 
 const RenderCreateNewEventPage = props => (
+  // console.log(props)
   <section>
-    <h1>Let's Create Your Event</h1>
-    <div className="newEventProgress">
-      {/* Progress bar container */}
-      <div>
-        <h4>STEP 1</h4>
-      </div>
-      <div>
-        <h4>STEP 2</h4>
-      </div>
-      <div>
-        <h4>STEP 3</h4>
-      </div>
-    </div>
-    <form>
+    <form onSubmit={props.submit}>
       <div className="formContainer">
         <div className="formColumn">
           <h2>Event Address</h2>
@@ -94,6 +82,20 @@ const RenderCreateNewEventPage = props => (
               value={props.values.end_time}
               onChange={props.handleChanges}
             />
+            <textarea
+              height="5"
+              name="special_instructions"
+              placeholder="Special instructions..."
+              value={props.values.special_instructions}
+              onChange={props.handleChanges}
+            />
+            <div>
+              {!props.loading ? (
+                <button>Next Step</button>
+              ) : (
+                <button disabled>Loading...</button>
+              )}
+            </div>
           </div>
         </div>
       </div>

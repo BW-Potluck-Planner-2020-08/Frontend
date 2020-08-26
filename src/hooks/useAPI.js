@@ -11,7 +11,10 @@ export const useAPI = config => {
     return axiosWithAuth()
       [method](url, data)
       .then(res => res.data)
-      .catch(err => err.message);
+      .catch(err => {
+        console.log(err);
+        return err;
+      });
   };
   // console.log(dataAPI)
   return [dataAPI, moveData, error];
