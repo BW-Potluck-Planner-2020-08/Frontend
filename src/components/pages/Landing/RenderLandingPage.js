@@ -99,8 +99,8 @@ function RenderLandingPage(props) {
             </div>
           </div>
           <div className="form">
-            <h2>Create an Account to Get Started!</h2>
             <section>
+              <h2>Create an Account to Get Started!</h2>
               <form onSubmit={register}>
                 <div>
                   <input

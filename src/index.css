@@ -120,11 +120,15 @@ h1,h2,h3,p, a{
   flex-direction: column;
   justify-content: center;
   max-width: 300px;
-  border: 1px dotted green;
-  margin-left: 5%;
-  margin-right: -2.5%;
+  text-align: center;
+  
 }
+.form section{
+  border: 1px dotted black;
+  background-color: #A8A8FF;
+  border-radius: 30px;
 
+}
 input {
   width: 200px;
   height: 25px;
@@ -143,7 +147,7 @@ input {
 
 .content-container {
   height:80vh;
-  margin-top: 5%;
+  margin-top: 2.55%;
   margin-right: 10%;
   margin-left: 10%;;
   border-radius: 70px;
@@ -155,13 +159,13 @@ input {
 
 /*LANDING PAGE */
 .introduction{
-  padding-top:10%;
+  padding-top:5%;
   width:60%;
   
 }
 
 span.arrow{
-  font-size:100px;
+  font-size:90px;
   font-weight: bolder;
   margin-right: 10%;
 }
