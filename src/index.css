@@ -34,6 +34,16 @@ button {
   border-radius: 5px;
 }
 
+button:hover {
+  background-color: #471401;
+  border: 1px solid rgba(#000, .05);
+  box-shadow: 1px 1px 2px rgba(#fff, .2);
+  color: lighten(red, 18%); 
+  text-decoration: none;
+  text-shadow: -1px -1px 0 #471401;
+  transition: all 250ms linear;
+}
+
 .container {
   display: flex;
   justify-content: center;
