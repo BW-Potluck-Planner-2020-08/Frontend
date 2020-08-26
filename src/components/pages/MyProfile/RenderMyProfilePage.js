@@ -5,6 +5,7 @@ function RenderMyProfilePage(props) {
   return (
     <div className="page">
       <header>
+        <h1>POTLUCK PLANNER</h1>
         <nav>
           <Link to="/landing">Home</Link>
           <Link to="/login"> Login</Link>
