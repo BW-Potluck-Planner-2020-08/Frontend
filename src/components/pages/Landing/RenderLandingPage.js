@@ -67,6 +67,7 @@ function RenderLandingPage(props) {
     <>
       <div className="page">
         <header>
+          <h1>POTLUCK PLANNER</h1>
           <nav>
             <Link to="/login"> Login</Link>
             <Link to="/dashboard">DashBoard</Link>
