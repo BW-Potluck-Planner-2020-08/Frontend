@@ -69,7 +69,9 @@ button:hover {
 }
 
 .newEventProgress {
-  border: 1px solid #323e40;
+  border: 1.5px solid #732002;
+  background-color: white;
+  border-radius: 25px;
   display: flex;
   justify-content: space-evenly;
   width: 85%;
@@ -80,11 +82,13 @@ button:hover {
 
 .formContainer {
   display: flex;
+  
 }
 
 .formColumn {
   display: flex;
   flex-direction: column;
+ 
 }
 .formColumn h2 {
   font-size: 1.5rem;
@@ -217,8 +221,11 @@ input[type='password'] {
 
 /* DASHBOARD */
 .dashboard-container {
-  padding-top: 10%;
+  margin-top: 10%;
+  margin-bottom:10%;
   display: flex;
+  border: 1.5px solid #732002;
+  border-radius: 25px;
 }
 .dashboard-container h1 {
   font-size: 3.5rem;
@@ -261,12 +268,46 @@ button.pepe { animation-name: pepe; animation-iteration-count: infinite }
 /* Help Page */
 .steps{
   display: flex;
+ 
   text-align: center;
 }
-
-.steps h1{
-  font-size: 2.5rem;
+.steps div {
+  /* width:50%; */
 }
-.steps h2{
-  font-size: 2rem;
+.stepone{
+  width:50%;
+  height: auto;
+}
+.steptwo{
+  width:100%;
+  
+}
+.stepfour {
+  width: 80%;
+  height: auto;
+}
+.stepfive {
+  width:100%;
+  height: auto;
+}
+.stepsix{
+  width: 100%;
+  height: auto;
+
+}
+
+/* Create New Event Steps */
+.circle {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  background: #732002;
+  border: 1.5px solid #000;
+
+}
+
+.circle h4{
+  color:#f8f8ff;
+  text-align: center;
+  font-weight: bold;
 }
