@@ -256,3 +256,17 @@ button.pepe { animation-name: pepe; animation-iteration-count: infinite }
   from, 33%, 66%, to { transform: rotate(4deg) }
   16%, 50%, 83% { transform: rotate(-4deg) }
 }
+
+
+/* Help Page */
+.steps{
+  display: flex;
+  text-align: center;
+}
+
+.steps h1{
+  font-size: 2.5rem;
+}
+.steps h2{
+  font-size: 2rem;
+}
