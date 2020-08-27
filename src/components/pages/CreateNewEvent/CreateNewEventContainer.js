@@ -53,6 +53,7 @@ const CreateNewEvent = props => {
           ...res,
           event_id: res.id,
           menu_items: [],
+          guests: [],
         };
         dispatch({
           type: ADD_EVENT_SUCCESS,
@@ -75,12 +76,12 @@ const CreateNewEvent = props => {
 
   return (
     <section>
-      {!props.newEvent && null}
+      {!eventsState.editing && null}
       <CreateEventProgressBar />
       {currentStep === 'two' ? (
         <StepTwoContainer setCurrentStep={setCurrentStep} />
       ) : currentStep === 'three' ? (
-        <StepThreeContainer />
+        <StepThreeContainer setCurrentStep={setCurrentStep} />
       ) : (
         <RenderCreateNewEventPage
           values={values}

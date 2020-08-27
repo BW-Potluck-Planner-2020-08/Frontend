@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, Switch, useHistory } from 'react-router-dom';
 import { CreateNewEvent } from '../CreateNewEvent/';
 import PrivateRoute from '../../common/PrivateRoute';
+import { TOGGLE_EDITING } from '../../../state/reducers/eventsReducer';
 
 function RenderDashboardPage(props) {
+  const eventsState = useSelector(state => state.eventsReducer);
+  const dispatch = useDispatch();
   const [newEvent, setNewEvent] = useState(false);
   const history = useHistory();
 
   const createNewEvent = e => {
     e.preventDefault();
-    setNewEvent(true);
+    dispatch({ type: TOGGLE_EDITING });
     history.push('/dashboard/new-event');
   };
 
@@ -28,10 +32,10 @@ function RenderDashboardPage(props) {
         <h1> Welcome To Your DashBoard</h1>
         {/*Going to update next div with classname "dashboard-container" that should increase font add colors, waiting until its complete*/}
         <div className="dashboard-container">
-          {!newEvent ? (
+          {!eventsState.editing ? (
             <button onClick={createNewEvent}>Create New Potluck</button>
           ) : null}
-          {newEvent ? <CreateNewEvent newEvent={newEvent} /> : null}
+          {eventsState.editing ? <CreateNewEvent newEvent={newEvent} /> : null}
         </div>
         <div></div>
         <Switch>
