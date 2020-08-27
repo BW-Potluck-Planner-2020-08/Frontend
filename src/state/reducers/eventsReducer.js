@@ -110,7 +110,9 @@ export const eventsReducer = (state = initialState, action) => {
               menu_items: [...event.menu_items, action.payload],
             };
           } else {
-            return event;
+            return {
+              ...event,
+            };
           }
         }),
         currentEvent: {
@@ -136,6 +138,10 @@ export const eventsReducer = (state = initialState, action) => {
               menu_items: event.menu_items.filter(
                 item => item.id !== action.payload
               ),
+            };
+          } else {
+            return {
+              ...event,
             };
           }
         }),
@@ -175,7 +181,9 @@ export const eventsReducer = (state = initialState, action) => {
               guests: [...event.guests, action.payload],
             };
           } else {
-            return event;
+            return {
+              ...event,
+            };
           }
         }),
         currentEvent: {
@@ -199,6 +207,10 @@ export const eventsReducer = (state = initialState, action) => {
             return {
               ...event,
               guests: event.guests.filter(item => item.id !== action.payload),
+            };
+          } else {
+            return {
+              ...event,
             };
           }
         }),
