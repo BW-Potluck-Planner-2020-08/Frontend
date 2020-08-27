@@ -13,6 +13,8 @@ html {
   font-size: 62.5%;
 }
 
+
+
 body::after {
   content: '';
   background-image: url('./assets/ambitious-creative-co-rick-barrett-I8Ag046kfqc-unsplash.jpg');
@@ -98,13 +100,18 @@ header h1{
 nav {
   font-size: 2.3rem;
   padding-bottom: 0.25%;
-  padding-top: 1%
+  padding-top: 1.25%
 }
 a {
   color: white;
   text-decoration: none;
-  margin-left: 50px;
+  margin-left: 20px;
   font-weight: bolder;
+}
+.navspans{
+  border: 0.1rem solid white;
+  height: 2rem;
+  margin-left:20px;
 }
 h1,h2,h3,p, a{
   font-family: Arial,Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

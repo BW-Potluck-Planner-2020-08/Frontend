@@ -58,8 +58,11 @@ const LoginPage = () => {
           <h1>POTLUCK PLANNER</h1>
           <nav>
             <Link to="/landing"> Home</Link>
+            <span className="navspans"></span>
             <Link to="/dashboard">DashBoard</Link>
+            <span className="navspans"></span>
             <Link to="/my-profile">My Profile</Link>
+            <span className="navspans"></span>
             <Link to="/help">Help</Link>
           </nav>
         </header>

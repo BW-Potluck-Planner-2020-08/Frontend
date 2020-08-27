@@ -7,10 +7,13 @@ function RenderHelpPage(props) {
       <header>
         <h1>POTLUCK PLANNER</h1>
         <nav>
-          <Link to="/login"> Login</Link>
-          <Link to="/dashboard">DashBoard</Link>
-          <Link to="/my-profile">My Profile</Link>
           <Link to="/landing">Home</Link>
+          <span className="navspans"></span>
+          <Link to="/dashboard">DashBoard</Link>
+          <span className="navspans"></span>
+          <Link to="/my-profile">My Profile</Link>
+          <span className="navspans"></span>
+          <Link to="/login"> Login</Link>
         </nav>
       </header>
       <div className="content-container">
