@@ -29,13 +29,12 @@ function RenderDashboardPage(props) {
         </nav>
       </header>
       <div className="content-container">
-        <h1> Welcome To Your DashBoard</h1>
         {/*Going to update next div with classname "dashboard-container" that should increase font add colors, waiting until its complete*/}
         <div className="dashboard-container">
           {!eventsState.editing ? (
             <button onClick={createNewEvent}>Create New Potluck</button>
           ) : null}
-          {eventsState.editing ? <CreateNewEvent newEvent={newEvent} /> : null}
+          {eventsState.editing ? <CreateNewEvent /> : null}
         </div>
         <div></div>
         <Switch>
