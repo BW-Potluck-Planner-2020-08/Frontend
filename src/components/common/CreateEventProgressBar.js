@@ -5,13 +5,13 @@ const CreateEventProgressBar = props => (
     <h1>Let's Create Your Event</h1>
     <div className="newEventProgress">
       {/* Progress bar container */}
-      <div>
+      <div className="circle">
         <h4>STEP 1</h4>
       </div>
-      <div>
+      <div className="circle">
         <h4>STEP 2</h4>
       </div>
-      <div>
+      <div className="circle">
         <h4>STEP 3</h4>
       </div>
     </div>
