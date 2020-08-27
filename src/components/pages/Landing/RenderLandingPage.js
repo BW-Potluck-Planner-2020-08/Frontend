@@ -105,6 +105,7 @@ function RenderLandingPage(props) {
                 <div>
                   <input
                     type="text"
+                    required
                     name="first_name"
                     placeholder="First Name"
                     value={values.first_name}
@@ -112,6 +113,7 @@ function RenderLandingPage(props) {
                   />
                   <input
                     type="text"
+                    required
                     name="last_name"
                     placeholder="Last Name"
                     value={values.last_name}
@@ -148,6 +150,13 @@ function RenderLandingPage(props) {
                     name="city"
                     placeholder="City"
                     value={values.city}
+                    onChange={handleChanges}
+                  />
+                  <input
+                    type="text"
+                    name="zip"
+                    placeholder="Zip Code"
+                    value={values.zip}
                     onChange={handleChanges}
                   />
 
