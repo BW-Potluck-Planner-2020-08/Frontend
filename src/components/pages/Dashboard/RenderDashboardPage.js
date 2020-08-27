@@ -25,8 +25,11 @@ function RenderDashboardPage() {
         <h1>POTLUCK PLANNER</h1>
         <nav>
           <Link to="/landing">Home</Link>
+          <span className="navspans"></span>
           <Link to="/login"> Login</Link>
+          <span className="navspans"></span>
           <Link to="/my-profile">My Profile</Link>
+          <span className="navspans"></span>
           <Link to="/help">Help</Link>
         </nav>
       </header>
@@ -35,7 +38,12 @@ function RenderDashboardPage() {
         <div className="dashboard-container">
           <div className="formColumn">
             {!eventsState.editing ? (
-              <button onClick={createNewEvent}>Create New Potluck</button>
+              <button
+                className="cssanimation pepe sequence"
+                onClick={createNewEvent}
+              >
+                Create New Potluck
+              </button>
             ) : null}
             {eventsState.editing ? <CreateNewEvent /> : null}
             {!eventsState.editing ? <DashboardHost /> : null}

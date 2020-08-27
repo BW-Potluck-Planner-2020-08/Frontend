@@ -13,6 +13,8 @@ html {
   font-size: 62.5%;
 }
 
+
+
 body::after {
   content: '';
   background-image: url('./assets/ambitious-creative-co-rick-barrett-I8Ag046kfqc-unsplash.jpg');
@@ -108,21 +110,30 @@ header h1 {
 nav {
   font-size: 2.3rem;
   padding-bottom: 0.25%;
+
   padding-top: 1%;
+  
 }
+
 a {
   color: white;
   text-decoration: none;
-  margin-left: 50px;
+  margin-left: 20px;
   font-weight: bolder;
 }
+
+.navspans{
+  border: 0.1rem solid white;
+  height: 2rem;
+  margin-left:20px;
+}
+
 h1,
 h2,
 h3,
 p,
 a {
   font-family: Arial, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  /* font-weight: bolder; */
 }
 
 .form h2 {
@@ -231,4 +242,31 @@ input[type='password'] {
   50% {
     transform: translate(15px);
   }
+}
+/* CREATE NEW EVENT BUTTON ANIMATION */
+button.cssanimation, .cssanimation span {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+button.cssanimation span { display: inline-block }
+
+button.pepe { animation-name: pepe; animation-iteration-count: infinite }
+@keyframes pepe {
+  from, 33%, 66%, to { transform: rotate(4deg) }
+  16%, 50%, 83% { transform: rotate(-4deg) }
+}
+
+
+/* Help Page */
+.steps{
+  display: flex;
+  text-align: center;
+}
+
+.steps h1{
+  font-size: 2.5rem;
+}
+.steps h2{
+  font-size: 2rem;
 }
