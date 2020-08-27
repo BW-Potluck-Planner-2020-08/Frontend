@@ -65,7 +65,7 @@ function RenderHelpPage(props) {
             <h2>Add invites for guests.</h2>
             <img
               className="stepsix"
-              src={require('../../../assets/steps/finalstep.PNG')}
+              src={require('../../../assets/steps/stepsix.gif')}
               alt="finalstep"
             />
           </div>
