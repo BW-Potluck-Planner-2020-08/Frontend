@@ -91,7 +91,7 @@ const RenderCreateNewEventPage = props => (
             />
             <div>
               {!props.loading ? (
-                <button>Next Step</button>
+                <button>{props.buttonText}</button>
               ) : (
                 <button disabled>Loading...</button>
               )}
