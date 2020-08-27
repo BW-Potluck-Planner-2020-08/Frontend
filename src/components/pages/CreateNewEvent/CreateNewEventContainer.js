@@ -7,6 +7,7 @@ import {
   ADD_EVENT_START,
   ADD_EVENT_SUCCESS,
   ADD_EVENT_ERROR,
+  EDIT_EVENT_SUCCESS,
 } from '../../../state/reducers/eventsReducer';
 
 import CreateEventProgressBar from '../../common/CreateEventProgressBar';
@@ -93,7 +94,7 @@ const CreateNewEvent = props => {
           guests: [],
         };
         dispatch({
-          type: ADD_EVENT_SUCCESS,
+          type: EDIT_EVENT_SUCCESS,
           payload: newEvent,
         });
         // resetForm();

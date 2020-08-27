@@ -18,6 +18,7 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const DELETE_EVENT = 'DELETE_EVENT';
 export const SET_CURRENT_EVENT = 'SET_CURRENT_EVENT';
 export const EDIT_EVENT = 'EDIT_EVENT';
+export const EDIT_EVENT_SUCCESS = 'EDIT_EVENT_SUCCESS';
 
 const initialState = {
   events: [],
@@ -69,6 +70,14 @@ export const eventsReducer = (state = initialState, action) => {
         error: '',
       };
     case ADD_EVENT_SUCCESS:
+      return {
+        ...state,
+        events: [...state.events, action.payload],
+        currentEvent: action.payload,
+        loading: false,
+        editEvent: false,
+      };
+    case EDIT_EVENT_SUCCESS:
       return {
         ...state,
         events: [...state.events, action.payload],
