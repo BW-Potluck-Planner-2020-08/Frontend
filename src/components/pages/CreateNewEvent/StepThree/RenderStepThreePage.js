@@ -1,16 +1,23 @@
 import React from 'react';
 
-const RenderStepTwo = props => (
+const RenderStepThree = props => (
   <section>
     <form onSubmit={props.submit}>
       <div className="formContainer">
         <div className="formColumn">
-          <h2>What should guests bring?</h2>
+          <h2>Who is coming?</h2>
           <input
             type="text"
-            name="item_name"
-            placeholder="Enter an item for guests to bring"
-            value={props.value}
+            name="first_name"
+            placeholder="Guest's first name"
+            value={props.value.first_name}
+            onChange={props.handleChanges}
+          />
+          <input
+            type="text"
+            name="email"
+            placeholder="Guest's email address"
+            value={props.value.email}
             onChange={props.handleChanges}
           />
           <div>
@@ -23,7 +30,7 @@ const RenderStepTwo = props => (
         </div>
         <div className="formColumn">
           <div>
-            <h2>Current Items</h2>
+            <h2>Guest List</h2>
           </div>
           <div>
             <ul>
@@ -39,7 +46,7 @@ const RenderStepTwo = props => (
                     >
                       X&nbsp;&nbsp;
                     </span>
-                    {item.item_name}
+                    {item.first_name}&nbsp;({item.email})
                   </span>
                 </li>
               ))}
@@ -47,7 +54,7 @@ const RenderStepTwo = props => (
           </div>
           <div>
             {props.state.length > 0 ? (
-              <button onClick={props.nextStep}>NEXT STEP</button>
+              <button onClick={props.nextStep}>SAVE EVENT</button>
             ) : null}
           </div>
         </div>
@@ -56,4 +63,4 @@ const RenderStepTwo = props => (
   </section>
 );
 
-export default RenderStepTwo;
+export default RenderStepThree;

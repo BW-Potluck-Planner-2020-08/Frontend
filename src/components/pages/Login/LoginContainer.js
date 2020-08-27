@@ -8,6 +8,7 @@ import {
   USER_EVENT_SUCCESS,
   USER_EVENT_ERROR,
 } from '../../../state/reducers/userReducer';
+import { SET_CURRENT_USER } from '../../../state/reducers/eventsReducer';
 
 const initialFormValues = {
   email: '',
@@ -36,6 +37,10 @@ const LoginPage = () => {
         dispatch({
           type: USER_EVENT_SUCCESS,
           payload: res.user,
+        });
+        dispatch({
+          type: SET_CURRENT_USER,
+          payload: res.user.id,
         });
         history.push('/dashboard');
         resetForm();

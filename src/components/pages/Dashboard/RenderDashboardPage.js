@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, Switch, useHistory } from 'react-router-dom';
 import { CreateNewEvent } from '../CreateNewEvent/';
 import PrivateRoute from '../../common/PrivateRoute';
+import { TOGGLE_EDITING } from '../../../state/reducers/eventsReducer';
 
-function RenderDashboardPage(props) {
-  const [newEvent, setNewEvent] = useState(false);
+import DashboardHost from '../../common/DashboardHostEvents';
+import DashboardGuest from '../../common/DashboardGuestEvents';
+
+function RenderDashboardPage() {
+  const eventsState = useSelector(state => state.eventsReducer);
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const createNewEvent = e => {
     e.preventDefault();
-    setNewEvent(true);
+    dispatch({ type: TOGGLE_EDITING });
     history.push('/dashboard/new-event');
   };
 
@@ -28,15 +34,24 @@ function RenderDashboardPage(props) {
         </nav>
       </header>
       <div className="content-container">
-        <h1> Welcome To Your DashBoard</h1>
         {/*Going to update next div with classname "dashboard-container" that should increase font add colors, waiting until its complete*/}
         <div className="dashboard-container">
-          {!newEvent ? (
-            <button onClick={createNewEvent}>Create New Potluck</button>
-          ) : null}
-          {newEvent ? <CreateNewEvent newEvent={newEvent} /> : null}
+          <div className="formColumn">
+            {!eventsState.editing ? (
+              <button
+                className="cssanimation pepe sequence"
+                onClick={createNewEvent}
+              >
+                Create New Potluck
+              </button>
+            ) : null}
+            {eventsState.editing ? <CreateNewEvent /> : null}
+            {!eventsState.editing ? <DashboardHost /> : null}
+          </div>
+          <div className="formColumn">
+            {!eventsState.editing ? <DashboardGuest /> : null}
+          </div>
         </div>
-        <div></div>
         <Switch>
           <PrivateRoute path="/dashboard/new-event/step-two"></PrivateRoute>
           <PrivateRoute path="/new-event">
