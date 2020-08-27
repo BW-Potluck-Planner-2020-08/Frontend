@@ -112,6 +112,8 @@ nav {
   padding-bottom: 0.25%;
 
   padding-top: 1%;
+  
+}
 
 a {
   color: white;
@@ -132,7 +134,7 @@ h3,
 p,
 a {
   font-family: Arial, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
+}
 
 .form h2 {
   font-size: 2rem;
