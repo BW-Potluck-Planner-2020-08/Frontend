@@ -16,14 +16,18 @@ export const DELETE_GUEST = 'DELETE_GUEST';
 export const TOGGLE_EDITING = 'TOGGLE_EDITING';
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const DELETE_EVENT = 'DELETE_EVENT';
+export const SET_CURRENT_EVENT = 'SET_CURRENT_EVENT';
+export const EDIT_EVENT = 'EDIT_EVENT';
 
 const initialState = {
   events: [],
   currentEvent: '',
+  currentEventID: '',
   currentUser: '',
   loading: false,
   error: '',
   editing: false,
+  editEvent: false,
 };
 
 export const eventsReducer = (state = initialState, action) => {
@@ -32,6 +36,13 @@ export const eventsReducer = (state = initialState, action) => {
       return {
         ...state,
         currentUser: action.payload,
+      };
+    case SET_CURRENT_EVENT:
+      return {
+        ...state,
+        currentEvent: state.events.filter(event => event.id === action.payload),
+        events: state.events.filter(event => event.id !== action.payload),
+        // editEvent: false,
       };
     case FETCH_DATA_START:
       return {
@@ -45,6 +56,7 @@ export const eventsReducer = (state = initialState, action) => {
         events: action.payload.filter(
           event => event.user_id === state.currentUser
         ),
+        loading: false,
       };
     case FETCH_DATA_ERROR:
       return {
@@ -62,6 +74,8 @@ export const eventsReducer = (state = initialState, action) => {
         events: [...state.events, action.payload],
         currentEvent: action.payload,
         loading: false,
+        editEvent: false,
+        editing: false,
       };
     case ADD_EVENT_ERROR:
       return {
@@ -122,6 +136,12 @@ export const eventsReducer = (state = initialState, action) => {
             item => item.id !== action.payload
           ),
         },
+      };
+    case EDIT_EVENT:
+      return {
+        ...state,
+        currentEventID: action.payload,
+        editEvent: true,
       };
     case DELETE_EVENT:
       return {
