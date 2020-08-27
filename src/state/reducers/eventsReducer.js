@@ -14,10 +14,13 @@ export const ADD_GUEST_SUCCESS = 'ADD_GUEST_SUCCESS';
 export const ADD_GUEST_ERROR = 'ADD_GUEST_ERROR';
 export const DELETE_GUEST = 'DELETE_GUEST';
 export const TOGGLE_EDITING = 'TOGGLE_EDITING';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const DELETE_EVENT = 'DELETE_EVENT';
 
 const initialState = {
   events: [],
   currentEvent: '',
+  currentUser: '',
   loading: false,
   error: '',
   editing: false,
@@ -25,6 +28,28 @@ const initialState = {
 
 export const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_CURRENT_USER:
+      return {
+        ...state,
+        currentUser: action.payload,
+      };
+    case FETCH_DATA_START:
+      return {
+        ...state,
+        loading: true,
+        error: '',
+      };
+    case FETCH_DATA_SUCCESS:
+      return {
+        ...state,
+        events: action.payload.filter(
+          event => event.user_id === state.currentUser
+        ),
+      };
+    case FETCH_DATA_ERROR:
+      return {
+        ...state,
+      };
     case ADD_EVENT_START:
       return {
         ...state,
@@ -97,6 +122,11 @@ export const eventsReducer = (state = initialState, action) => {
             item => item.id !== action.payload
           ),
         },
+      };
+    case DELETE_EVENT:
+      return {
+        ...state,
+        events: state.events.filter(event => event.id !== action.payload),
       };
     case ADD_GUEST_START:
       return {

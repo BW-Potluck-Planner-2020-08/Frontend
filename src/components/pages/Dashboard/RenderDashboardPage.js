@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, Switch, useHistory } from 'react-router-dom';
 import { CreateNewEvent } from '../CreateNewEvent/';
 import PrivateRoute from '../../common/PrivateRoute';
 import { TOGGLE_EDITING } from '../../../state/reducers/eventsReducer';
 
-function RenderDashboardPage(props) {
+import DashboardHost from '../../common/DashboardHostEvents';
+import DashboardGuest from '../../common/DashboardGuestEvents';
+
+function RenderDashboardPage() {
   const eventsState = useSelector(state => state.eventsReducer);
   const dispatch = useDispatch();
-  const [newEvent, setNewEvent] = useState(false);
   const history = useHistory();
 
   const createNewEvent = e => {
@@ -31,12 +33,17 @@ function RenderDashboardPage(props) {
       <div className="content-container">
         {/*Going to update next div with classname "dashboard-container" that should increase font add colors, waiting until its complete*/}
         <div className="dashboard-container">
-          {!eventsState.editing ? (
-            <button onClick={createNewEvent}>Create New Potluck</button>
-          ) : null}
-          {eventsState.editing ? <CreateNewEvent /> : null}
+          <div className="formColumn">
+            {!eventsState.editing ? (
+              <button onClick={createNewEvent}>Create New Potluck</button>
+            ) : null}
+            {eventsState.editing ? <CreateNewEvent /> : null}
+            {!eventsState.editing ? <DashboardHost /> : null}
+          </div>
+          <div className="formColumn">
+            {!eventsState.editing ? <DashboardGuest /> : null}
+          </div>
         </div>
-        <div></div>
         <Switch>
           <PrivateRoute path="/dashboard/new-event/step-two"></PrivateRoute>
           <PrivateRoute path="/new-event">
