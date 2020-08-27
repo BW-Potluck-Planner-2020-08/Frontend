@@ -23,7 +23,12 @@ body::after {
   position: absolute;
   z-index: -1;
 }
-
+.itemList {
+  font-size: 2.2rem;
+}
+ul {
+  list-style-type: none;
+}
 button {
   color: white;
   background-color: #732002;
@@ -32,6 +37,14 @@ button {
   width: 50%;
   padding: 1rem 1.25rem;
   border-radius: 5px;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+.delete {
+  font-size: 1.5rem;
+  color: #732002;
 }
 
 .container {
@@ -80,29 +93,28 @@ a {
   max-width: 200px;
 }
 
-.page{
+.page {
   width: 100%;
   height: 100%;
 }
 
 .content-container {
-  height:80vh;
+  height: 80vh;
   margin-top: 5%;
   margin-right: 10%;
-  margin-left: 10%;;
+  margin-left: 10%;
   border-radius: 70px;
   background-color: white;
   display: flex;
   justify-content: center;
 }
 
-.introduction{
-  padding-top:15%;
-  width:60%;
-  
+.introduction {
+  padding-top: 15%;
+  width: 60%;
 }
 
-span.arrow{
-  font-size:100px;
+span.arrow {
+  font-size: 100px;
   font-weight: bolder;
 }

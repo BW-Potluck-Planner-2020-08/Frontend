@@ -49,9 +49,14 @@ const CreateNewEvent = props => {
     moveData()
       .then(res => {
         console.log(res);
+        const newEvent = {
+          ...res,
+          event_id: res.id,
+          menu_items: [],
+        };
         dispatch({
           type: ADD_EVENT_SUCCESS,
-          payload: res,
+          payload: newEvent,
         });
         resetForm();
         setCurrentStep('two');

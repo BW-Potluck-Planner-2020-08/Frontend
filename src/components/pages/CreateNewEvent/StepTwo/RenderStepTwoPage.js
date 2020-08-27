@@ -10,18 +10,46 @@ const RenderStepTwo = props => (
             type="text"
             name="item_name"
             placeholder="Enter an item for guests to bring"
-            value={props.values}
+            value={props.value}
             onChange={props.handleChanges}
           />
           <div>
             {!props.loading ? (
-              <button>Next Step</button>
+              <button>{props.buttonText}</button>
             ) : (
               <button disabled>Loading...</button>
             )}
           </div>
         </div>
-        <div className="formColumn"></div>
+        <div className="formColumn">
+          <div>
+            <h2>Current Items</h2>
+          </div>
+          <div>
+            <ul>
+              {props.state.map(item => (
+                <li key={item.id} onClick={() => props.editItem(item)}>
+                  <span className="itemList">
+                    <span
+                      className="delete"
+                      onClick={e => {
+                        e.stopPropagation();
+                        props.setEditID(item.id);
+                        props.deleteItem(item.id);
+                      }}
+                    >
+                      X&nbsp;&nbsp;
+                    </span>
+                    {item.item_name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <button onClick={props.nextStep}>NEXT STEP</button>
+          </div>
+        </div>
       </div>
     </form>
   </section>
