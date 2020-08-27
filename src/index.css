@@ -110,11 +110,8 @@ header h1 {
 nav {
   font-size: 2.3rem;
   padding-bottom: 0.25%;
-<<<<<<< HEAD
-  padding-top: 1.25%
-=======
+
   padding-top: 1%;
->>>>>>> 1b8d23a0e02ffb241992c1b6e6306261908e8438
 }
 a {
   color: white;
@@ -122,22 +119,20 @@ a {
   margin-left: 20px;
   font-weight: bolder;
 }
-<<<<<<< HEAD
+
 .navspans{
   border: 0.1rem solid white;
   height: 2rem;
   margin-left:20px;
 }
-h1,h2,h3,p, a{
-  font-family: Arial,Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-=======
+
 h1,
 h2,
 h3,
 p,
 a {
   font-family: Arial, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
->>>>>>> 1b8d23a0e02ffb241992c1b6e6306261908e8438
+
   /* font-weight: bolder; */
 }
 
@@ -260,4 +255,18 @@ button.pepe { animation-name: pepe; animation-iteration-count: infinite }
 @keyframes pepe {
   from, 33%, 66%, to { transform: rotate(4deg) }
   16%, 50%, 83% { transform: rotate(-4deg) }
+}
+
+
+/* Help Page */
+.steps{
+  display: flex;
+  text-align: center;
+}
+
+.steps h1{
+  font-size: 2.5rem;
+}
+.steps h2{
+  font-size: 2rem;
 }
