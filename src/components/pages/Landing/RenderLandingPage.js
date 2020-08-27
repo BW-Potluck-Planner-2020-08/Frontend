@@ -27,6 +27,7 @@ const initialFormValues = {
 function RenderLandingPage(props) {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the Login route
+
   const dispatch = useDispatch();
   const state = useSelector(state => state.userReducer);
   const [values, handleChanges, resetForm] = useForm(initialFormValues);
@@ -66,6 +67,7 @@ function RenderLandingPage(props) {
     <>
       <div className="page">
         <header>
+          <h1>POTLUCK PLANNER</h1>
           <nav>
             <Link to="/login"> Login</Link>
             <Link to="/dashboard">DashBoard</Link>
@@ -84,15 +86,26 @@ function RenderLandingPage(props) {
             <h2>
               Ready to get started? Create your account today. It’s free.{' '}
             </h2>
-            <span className="arrow">&#8594;</span>
+            <div className="cssanimation hu__hu__ sequence">
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+              <h1>Don't Miss Out On This Oppurtunity!</h1>
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+              <span className="arrow">&#8594;</span>
+            </div>
           </div>
           <div className="form">
-            <h2>Create an Account to Get Started!</h2>
             <section>
+              <h2>Create an Account to Get Started!</h2>
               <form onSubmit={register}>
                 <div>
                   <input
                     type="text"
+                    required
                     name="first_name"
                     placeholder="First Name"
                     value={values.first_name}
@@ -100,6 +113,7 @@ function RenderLandingPage(props) {
                   />
                   <input
                     type="text"
+                    required
                     name="last_name"
                     placeholder="Last Name"
                     value={values.last_name}
@@ -136,6 +150,13 @@ function RenderLandingPage(props) {
                     name="city"
                     placeholder="City"
                     value={values.city}
+                    onChange={handleChanges}
+                  />
+                  <input
+                    type="text"
+                    name="zip"
+                    placeholder="Zip Code"
+                    value={values.zip}
                     onChange={handleChanges}
                   />
 

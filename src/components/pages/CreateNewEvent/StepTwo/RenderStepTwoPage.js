@@ -34,7 +34,6 @@ const RenderStepTwo = props => (
                       className="delete"
                       onClick={e => {
                         e.stopPropagation();
-                        props.setEditID(item.id);
                         props.deleteItem(item.id);
                       }}
                     >
@@ -47,7 +46,9 @@ const RenderStepTwo = props => (
             </ul>
           </div>
           <div>
-            <button onClick={props.nextStep}>NEXT STEP</button>
+            {props.state.length > 0 ? (
+              <button onClick={props.nextStep}>NEXT STEP</button>
+            ) : null}
           </div>
         </div>
       </div>

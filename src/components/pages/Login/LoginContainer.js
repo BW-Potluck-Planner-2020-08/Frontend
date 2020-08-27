@@ -55,6 +55,7 @@ const LoginPage = () => {
     <>
       <div className="page">
         <header>
+          <h1>POTLUCK PLANNER</h1>
           <nav>
             <Link to="/landing"> Home</Link>
             <Link to="/dashboard">DashBoard</Link>
@@ -63,9 +64,9 @@ const LoginPage = () => {
           </nav>
         </header>
         <div className="content-container">
-          <h1>Login</h1>
           <div className="form">
             <section>
+              <h1>Login To Your Account</h1>
               <form onSubmit={login}>
                 <input
                   type="text"
