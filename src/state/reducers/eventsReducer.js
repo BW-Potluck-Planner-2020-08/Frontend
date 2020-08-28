@@ -22,6 +22,7 @@ export const EDIT_EVENT_SUCCESS = 'EDIT_EVENT_SUCCESS';
 export const EVENT_DATA_START = 'EVENT_DATA_START';
 export const EVENT_DATA_SUCCESS = 'EVENT_DATA_SUCCESS';
 export const EVENT_DATA_ERROR = 'EVENT_DATA_ERROR';
+export const RSVP_ADD_ITEM = 'RSVP_ADD_ITEM';
 
 const initialState = {
   events: [],
@@ -33,6 +34,7 @@ const initialState = {
   editing: false,
   editEvent: false,
   rsvpEvent: '',
+  rsvpAddItem: [],
 };
 
 export const eventsReducer = (state = initialState, action) => {
@@ -247,6 +249,34 @@ export const eventsReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case RSVP_ADD_ITEM:
+      return {
+        ...state,
+        events: state.events.map(event => {
+          if (event.event_id === action.payload.event_id) {
+            return {
+              ...event,
+              menu_items: event.menu_items.map(item => {
+                if (item.id === action.payload.id) {
+                  return {
+                    ...item,
+                    guest_id: state.currentUser,
+                  };
+                } else {
+                  return {
+                    ...item,
+                  };
+                }
+              }),
+            };
+          } else {
+            return {
+              ...event,
+            };
+          }
+        }),
+        rsvpAddItem: [...state.rsvpAddItem, action.payload],
       };
     default:
       return state;

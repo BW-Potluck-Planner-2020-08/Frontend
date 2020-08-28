@@ -6,6 +6,7 @@ import {
   EVENT_DATA_START,
   EVENT_DATA_SUCCESS,
   EVENT_DATA_ERROR,
+  RSVP_ADD_ITEM,
 } from '../../state/reducers/eventsReducer';
 
 const state = {
@@ -65,7 +66,7 @@ const initialFormValues = {
 };
 
 const GuestRsvp = () => {
-  //   const state = useSelector(data);
+  const eventsState = useSelector(state => state.eventsReducer);
   const dispatch = useDispatch();
   const [values, handleChanges, resetForm] = useForm(initialFormValues);
   const [data, moveData, error] = useAPI({
@@ -85,6 +86,11 @@ const GuestRsvp = () => {
         dispatch({ type: EVENT_DATA_ERROR, payload: err });
       });
   }, []);
+
+  const addItem = item => {
+    console.log(item);
+    dispatch({ type: RSVP_ADD_ITEM, payload: item });
+  };
 
   const submit = e => {
     e.preventDefault();
@@ -122,7 +128,7 @@ const GuestRsvp = () => {
               <h4>Select What You Want To Bring</h4>
               <ul>
                 {state.menu_items.map(item => (
-                  <li key={item.id}>
+                  <li key={item.id} onClick={() => addItem(item)}>
                     <span className="itemList">{item.item_name}</span>
                   </li>
                 ))}
@@ -130,6 +136,17 @@ const GuestRsvp = () => {
             </div>
           </div>
           <div className="formColumn"></div>
+          <h4>You have selected...</h4>
+          <ul>
+            {eventsState.rsvpAddItem.map(item => (
+              <li key={item.id}>
+                <span className="itemList">{item.item_name}</span>
+              </li>
+            ))}
+          </ul>
+          <div>
+            <button>CONFIRM ATTENDANCE</button>
+          </div>
         </div>
       </form>
     </section>
