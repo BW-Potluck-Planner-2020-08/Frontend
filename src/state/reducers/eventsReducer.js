@@ -19,6 +19,9 @@ export const DELETE_EVENT = 'DELETE_EVENT';
 export const SET_CURRENT_EVENT = 'SET_CURRENT_EVENT';
 export const EDIT_EVENT = 'EDIT_EVENT';
 export const EDIT_EVENT_SUCCESS = 'EDIT_EVENT_SUCCESS';
+export const EVENT_DATA_START = 'EVENT_DATA_START';
+export const EVENT_DATA_SUCCESS = 'EVENT_DATA_SUCCESS';
+export const EVENT_DATA_ERROR = 'EVENT_DATA_ERROR';
 
 const initialState = {
   events: [],
@@ -29,6 +32,7 @@ const initialState = {
   error: '',
   editing: false,
   editEvent: false,
+  rsvpEvent: '',
 };
 
 export const eventsReducer = (state = initialState, action) => {
@@ -226,6 +230,23 @@ export const eventsReducer = (state = initialState, action) => {
         ...state,
         currentEvent: '',
         editing: !state.editing,
+      };
+    case EVENT_DATA_START:
+      return {
+        ...state,
+        loading: true,
+      };
+    case EVENT_DATA_SUCCESS:
+      return {
+        ...state,
+        rsvpEvent: action.payload,
+        loading: false,
+      };
+    case EVENT_DATA_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
     default:
       return state;

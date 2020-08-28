@@ -7,6 +7,7 @@ import { TOGGLE_EDITING } from '../../../state/reducers/eventsReducer';
 
 import DashboardHost from '../../common/DashboardHostEvents';
 import DashboardGuest from '../../common/DashboardGuestEvents';
+import GuestRsvp from '../../common/GuestRsvp';
 
 function RenderDashboardPage() {
   const eventsState = useSelector(state => state.eventsReducer);
@@ -52,10 +53,12 @@ function RenderDashboardPage() {
             {!eventsState.editing ? <DashboardGuest /> : null}
           </div>
         </div>
+      </div>
+      <div className="dashboard-container">
         <Switch>
           <PrivateRoute path="/dashboard/new-event/step-two"></PrivateRoute>
-          <PrivateRoute path="/new-event">
-            {/* <CreateNewEvent /> */}
+          <PrivateRoute path="/dashboard/guest-rsvp">
+            <GuestRsvp />
           </PrivateRoute>
         </Switch>
       </div>
